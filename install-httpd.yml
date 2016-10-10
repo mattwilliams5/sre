@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  user: matt
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Install and set up Apache with SSL
+    yum: name={{item}} state=installed
+    with_items:
+        - httpd
+        - mod_ssl
+        - openssl
+- 
